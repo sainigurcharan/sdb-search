@@ -11,18 +11,6 @@ A comprehensive Angular application for searching and displaying service results
 - **Real-time Data**: Fetches data from REST API endpoints
 - **Professional Layout**: Clean, modern design with hover effects and animations
 
-## 📋 Table of Contents
-
-1. [Installation Guide](#installation-guide)
-2. [Application Workflow](#application-workflow)
-3. [API Endpoints](#api-endpoints)
-4. [JWT Authentication Guide](#jwt-authentication-guide)
-5. [Local Development](#local-development)
-6. [Project Structure](#project-structure)
-7. [Troubleshooting](#troubleshooting)
-
----
-
 ## 🛠️ Installation Guide
 
 ### Prerequisites
