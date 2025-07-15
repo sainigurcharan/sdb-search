@@ -1,0 +1,270 @@
+/* Component-specific styles */
+.mat-mdc-table {
+  width: 100%;
+  background: white;
+  table-layout: fixed;
+}
+
+.table-container {
+  overflow-y: auto;
+  position: relative;
+  height: 100%;
+}
+
+.mat-mdc-header-row {
+  background-color: #DCE4F0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mat-mdc-header-cell {
+  font-weight: 600;
+  color: #000000;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 12px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mat-mdc-header-cell:hover {
+  background-color: #C8D4E8;
+}
+
+.mat-mdc-cell {
+  border-bottom: 1px solid #CCCCCC;
+  padding: 12px 8px;
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.mat-mdc-row:hover {
+  background-color: #F5F9FF;
+}
+
+.mat-mdc-row:last-child .mat-mdc-cell {
+  border-bottom: none;
+}
+
+.difficult-period {
+  color: #1A0DAB;
+  font-weight: 500;
+}
+
+/* Responsive column widths */
+.responsive-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .supplier-col { width: 12%; }
+  .service-col { width: 15%; }
+  .date-col { width: 9%; }
+  .pax-col { width: 6%; }
+  .price-col { width: 8%; }
+  .price-for-col { width: 8%; }
+  .days-col { width: 7%; }
+  .market-col { width: 8%; }
+  .category-col { width: 8%; }
+  .currency-col { width: 6%; }
+  .active-col { width: 6%; }
+  .estimated-col { width: 7%; }
+}
+
+/* Tablet (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+  
+  .mat-mdc-header-cell {
+    font-size: 12px;
+  }
+  
+  .supplier-col { width: 14%; }
+  .service-col { width: 16%; }
+  .date-col { width: 10%; }
+  .pax-col { width: 5%; }
+  .price-col { width: 9%; }
+  .price-for-col { width: 9%; }
+  .days-col { width: 6%; }
+  .market-col { width: 8%; }
+  .category-col { width: 7%; }
+  .currency-col { width: 5%; }
+  .active-col { width: 5%; }
+  .estimated-col { width: 6%; }
+}
+
+/* Mobile (640px to 767px) */
+@media (min-width: 640px) and (max-width: 767px) {
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+  
+  .mat-mdc-header-cell {
+    font-size: 11px;
+  }
+  
+  .supplier-col { width: 15%; }
+  .service-col { width: 18%; }
+  .date-col { width: 11%; }
+  .pax-col { width: 4%; }
+  .price-col { width: 10%; }
+  .price-for-col { width: 10%; }
+  .days-col { width: 5%; }
+  .market-col { width: 8%; }
+  .category-col { width: 6%; }
+  .currency-col { width: 4%; }
+  .active-col { width: 4%; }
+  .estimated-col { width: 5%; }
+}
+
+/* Small Mobile (less than 640px) */
+@media (max-width: 639px) {
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    padding: 6px 3px;
+    font-size: 11px;
+  }
+  
+  .mat-mdc-header-cell {
+    font-size: 10px;
+  }
+  
+  .supplier-col { width: 16%; }
+  .service-col { width: 20%; }
+  .date-col { width: 12%; }
+  .pax-col { width: 3%; }
+  .price-col { width: 11%; }
+  .price-for-col { width: 11%; }
+  .days-col { width: 4%; }
+  .market-col { width: 7%; }
+  .category-col { width: 5%; }
+  .currency-col { width: 3%; }
+  .active-col { width: 4%; }
+  .estimated-col { width: 4%; }
+}
+
+/* Loading spinner */
+.mat-mdc-progress-spinner {
+  margin: 0 auto;
+}
+
+/* Sort headers */
+.mat-sort-header-arrow {
+  color: #1A0DAB;
+}
+
+.mat-sort-header-sorted {
+  color: #1A0DAB;
+}
+
+.mat-sort-header-button {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.mat-sort-header-button:focus {
+  outline: 2px solid #1A0DAB;
+  outline-offset: 2px;
+}
+
+/* Ensure proper text handling */
+.mat-mdc-cell {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Hover effects */
+.mat-mdc-row:hover .mat-mdc-cell {
+  background-color: #F5F9FF;
+}
+
+/* Better visual hierarchy */
+.mat-mdc-header-cell {
+  background-color: #DCE4F0;
+  position: relative;
+}
+
+.mat-mdc-header-cell::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #CCCCCC;
+}
+
+.mat-mdc-header-cell:last-child::after {
+  display: none;
+}
+
+/* Custom scrollbar for the table container */
+.table-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Ensure no body scroll */
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Flex container adjustments */
+.flex-1 {
+  flex: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/* Prevent any overflow on the main container */
+.h-screen {
+  height: 100vh;
+  max-height: 100vh;
+}

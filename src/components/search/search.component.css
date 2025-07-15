@@ -1,0 +1,240 @@
+/* Search component specific styles */
+.mat-mdc-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.mat-mdc-card-header {
+  padding: 24px 24px 0 24px;
+}
+
+.mat-mdc-card-content {
+  padding: 24px;
+}
+
+.mat-mdc-card-title {
+  display: flex;
+  align-items: center;
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field-outline {
+  border-radius: 8px;
+}
+
+.mat-mdc-form-field-outline-start,
+.mat-mdc-form-field-outline-end {
+  border-radius: 8px;
+}
+
+.mat-mdc-raised-button {
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mat-mdc-stroked-button {
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  border: 2px solid #e5e7eb;
+}
+
+.mat-mdc-raised-button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.mat-mdc-stroked-button:hover {
+  background-color: #f9fafb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mat-mdc-card-header {
+    padding: 16px 16px 0 16px;
+  }
+  
+  .mat-mdc-card-content {
+    padding: 16px;
+  }
+  
+  .mat-mdc-card-title {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mat-mdc-card-header {
+    padding: 12px 12px 0 12px;
+  }
+  
+  .mat-mdc-card-content {
+    padding: 12px;
+  }
+}
+
+/* Custom focus styles */
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-outline {
+  border-color: #3b82f6;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: #3b82f6;
+}
+
+/* Loading states */
+.mat-mdc-raised-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Icon positioning */
+.mat-mdc-form-field-icon-suffix {
+  color: #6b7280;
+}
+
+/* Enhanced button styles */
+.mat-mdc-raised-button.mat-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  background-color: #2563eb;
+}
+
+.mat-mdc-raised-button.mat-primary:disabled {
+  background-color: #9ca3af;
+  color: white;
+}
+
+/* Error message styling */
+.mat-mdc-form-field-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+}
+
+/* Help section styling */
+.help-section {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.help-section h3 {
+  color: #1e40af;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.help-section ul {
+  color: #1e40af;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.help-section li {
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+}
+
+/* Date picker customization */
+.mat-datepicker-toggle {
+  color: #6b7280;
+}
+
+.mat-datepicker-toggle:hover {
+  color: #3b82f6;
+}
+
+/* Select dropdown customization */
+.mat-mdc-select-arrow {
+  color: #6b7280;
+}
+
+.mat-mdc-select-placeholder {
+  color: #9ca3af;
+}
+
+/* Input field customization */
+.mat-mdc-input-element {
+  color: #1f2937;
+}
+
+.mat-mdc-input-element::placeholder {
+  color: #9ca3af;
+}
+
+/* Improve visual hierarchy */
+.grid {
+  align-items: start;
+}
+
+.mat-mdc-form-field-outline {
+  border: 1px solid #d1d5db;
+}
+
+.mat-mdc-form-field-outline:hover {
+  border-color: #9ca3af;
+}
+
+/* Smooth transitions */
+.mat-mdc-form-field-outline,
+.mat-mdc-raised-button,
+.mat-mdc-stroked-button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Ensure proper spacing */
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-1 > * + * {
+  margin-top: 0.25rem;
+}
+
+/* Grid responsiveness */
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Flex responsiveness */
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  
+  .sm\:flex-none {
+    flex: none;
+  }
+}

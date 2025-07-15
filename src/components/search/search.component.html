@@ -1,0 +1,215 @@
+<div class="h-screen bg-gray-50 flex flex-col overflow-hidden">
+  <!-- Header -->
+  <div class="bg-gradient-to-r from-header-blue to-blue-400 text-white p-6 shadow-lg flex-shrink-0">
+    <div class="w-full px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-semibold">Search Services</h1>
+      <div class="text-sm">
+        <span class="font-medium">Company Logo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col w-full px-4 py-6 overflow-y-auto">
+    <div class="max-w-6xl mx-auto w-full">
+      <!-- Search Form -->
+      <mat-card class="shadow-lg">
+        <mat-card-header>
+          <mat-card-title class="text-xl font-semibold text-gray-800">
+            <mat-icon class="mr-2">search</mat-icon>
+            Search Criteria
+          </mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content class="pt-6">
+          <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="space-y-6">
+            
+            <!-- Basic Information Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Supplier Name</mat-label>
+                <input matInput 
+                       formControlName="supplier" 
+                       placeholder="Enter supplier name"
+                       autocomplete="off">
+                <mat-icon matSuffix>business</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Service Name</mat-label>
+                <input matInput 
+                       formControlName="service" 
+                       placeholder="Enter service name"
+                       autocomplete="off">
+                <mat-icon matSuffix>room_service</mat-icon>
+              </mat-form-field>
+            </div>
+
+            <!-- Date Range Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Period From</mat-label>
+                <input matInput 
+                       [matDatepicker]="fromPicker" 
+                       formControlName="periodFrom"
+                       placeholder="Select start date">
+                <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                <mat-datepicker #fromPicker></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Period To</mat-label>
+                <input matInput 
+                       [matDatepicker]="toPicker" 
+                       formControlName="periodTo"
+                       placeholder="Select end date">
+                <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+                <mat-datepicker #toPicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <!-- Pax Range Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Minimum Pax</mat-label>
+                <input matInput 
+                       type="number" 
+                       formControlName="paxFrom" 
+                       placeholder="Enter minimum passengers"
+                       min="1">
+                <mat-icon matSuffix>people</mat-icon>
+                <mat-error *ngIf="hasError('paxFrom', 'min')">
+                  {{ getErrorMessage('paxFrom') }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Maximum Pax</mat-label>
+                <input matInput 
+                       type="number" 
+                       formControlName="paxTo" 
+                       placeholder="Enter maximum passengers"
+                       min="1">
+                <mat-icon matSuffix>people</mat-icon>
+                <mat-error *ngIf="hasError('paxTo', 'min')">
+                  {{ getErrorMessage('paxTo') }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Price Range Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Minimum Price</mat-label>
+                <input matInput 
+                       type="number" 
+                       formControlName="priceFrom" 
+                       placeholder="Enter minimum price"
+                       min="0"
+                       step="0.01">
+                <mat-icon matSuffix>attach_money</mat-icon>
+                <mat-error *ngIf="hasError('priceFrom', 'min')">
+                  {{ getErrorMessage('priceFrom') }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Maximum Price</mat-label>
+                <input matInput 
+                       type="number" 
+                       formControlName="priceTo" 
+                       placeholder="Enter maximum price"
+                       min="0"
+                       step="0.01">
+                <mat-icon matSuffix>attach_money</mat-icon>
+                <mat-error *ngIf="hasError('priceTo', 'min')">
+                  {{ getErrorMessage('priceTo') }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Dropdowns Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Market</mat-label>
+                <mat-select formControlName="market" placeholder="Select market">
+                  <mat-option value="">All Markets</mat-option>
+                  <mat-option *ngFor="let market of marketOptions" [value]="market">
+                    {{ market }}
+                  </mat-option>
+                </mat-select>
+                <mat-icon matSuffix>business_center</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category" placeholder="Select category">
+                  <mat-option value="">All Categories</mat-option>
+                  <mat-option *ngFor="let category of categoryOptions" [value]="category">
+                    {{ category }}
+                  </mat-option>
+                </mat-select>
+                <mat-icon matSuffix>category</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Currency</mat-label>
+                <mat-select formControlName="currency" placeholder="Select currency">
+                  <mat-option value="">All Currencies</mat-option>
+                  <mat-option *ngFor="let currency of currencyOptions" [value]="currency">
+                    {{ currency }}
+                  </mat-option>
+                </mat-select>
+                <mat-icon matSuffix>payments</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Active Status</mat-label>
+                <mat-select formControlName="active" placeholder="Select status">
+                  <mat-option value="">All Status</mat-option>
+                  <mat-option value="A">Active</mat-option>
+                  <mat-option value="I">Inactive</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>check_circle</mat-icon>
+              </mat-form-field>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-6">
+              <button mat-raised-button 
+                      color="primary" 
+                      type="submit"
+                      [disabled]="searchForm.invalid"
+                      class="flex-1 sm:flex-none px-8 py-3 text-lg font-medium">
+                <mat-icon class="mr-2">search</mat-icon>
+                Search Services
+              </button>
+              
+              <button mat-stroked-button 
+                      type="button" 
+                      (click)="onClear()"
+                      class="flex-1 sm:flex-none px-8 py-3 text-lg font-medium">
+                <mat-icon class="mr-2">clear</mat-icon>
+                Clear All
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Help Section -->
+      <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h3 class="text-lg font-medium text-blue-900 mb-2">
+          <mat-icon class="mr-2 text-blue-600">info</mat-icon>
+          Search Tips
+        </h3>
+        <ul class="text-blue-800 space-y-1 text-sm">
+          <li>• Leave fields empty to search all available options</li>
+          <li>• Use date ranges to filter services by availability period</li>
+          <li>• Set price and passenger ranges to find services within your budget</li>
+          <li>• Filter by market type to find specific service categories</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#app-root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.mat-mdc-table {
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+}
+
+.mat-mdc-header-row {
+  background-color: #DCE4F0;
+}
+
+.mat-mdc-row:hover {
+  background-color: #F5F9FF;
+}
+
+.mat-mdc-header-cell {
+  color: #000000;
+  font-weight: 600;
+}
+
+.difficult-period {
+  color: #1A0DAB;
+  font-weight: 500;
+}
