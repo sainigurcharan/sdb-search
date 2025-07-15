@@ -24,8 +24,8 @@ Before you begin, ensure you have the following installed:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd search-results-dashboard
+git clone https://github.com/sainigurcharan/sdb-search.git
+cd sdb-search
 ```
 
 ### Step 2: Install Dependencies
